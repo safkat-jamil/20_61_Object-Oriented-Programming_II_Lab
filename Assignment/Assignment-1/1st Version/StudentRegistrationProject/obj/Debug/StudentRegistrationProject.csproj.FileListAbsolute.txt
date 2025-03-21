@@ -1,0 +1,11 @@
+F:\Safkat Jamil (Imon)\Bangladesh Open University\CSE Program\3rd Year 1st Semester 2023\31P8\StudentRegistrationProject\bin\Debug\StudentRegistrationProject.exe.config
+F:\Safkat Jamil (Imon)\Bangladesh Open University\CSE Program\3rd Year 1st Semester 2023\31P8\StudentRegistrationProject\bin\Debug\StudentRegistrationProject.exe
+F:\Safkat Jamil (Imon)\Bangladesh Open University\CSE Program\3rd Year 1st Semester 2023\31P8\StudentRegistrationProject\bin\Debug\StudentRegistrationProject.pdb
+F:\Safkat Jamil (Imon)\Bangladesh Open University\CSE Program\3rd Year 1st Semester 2023\31P8\StudentRegistrationProject\obj\Debug\StudentRegistrationProject.csproj.AssemblyReference.cache
+F:\Safkat Jamil (Imon)\Bangladesh Open University\CSE Program\3rd Year 1st Semester 2023\31P8\StudentRegistrationProject\obj\Debug\StudentRegistrationProject.Properties.Resources.resources
+F:\Safkat Jamil (Imon)\Bangladesh Open University\CSE Program\3rd Year 1st Semester 2023\31P8\StudentRegistrationProject\obj\Debug\StudentRegistrationProject.RegistrationForm.resources
+F:\Safkat Jamil (Imon)\Bangladesh Open University\CSE Program\3rd Year 1st Semester 2023\31P8\StudentRegistrationProject\obj\Debug\StudentRegistrationProject.StudentDetails.resources
+F:\Safkat Jamil (Imon)\Bangladesh Open University\CSE Program\3rd Year 1st Semester 2023\31P8\StudentRegistrationProject\obj\Debug\StudentRegistrationProject.csproj.GenerateResource.cache
+F:\Safkat Jamil (Imon)\Bangladesh Open University\CSE Program\3rd Year 1st Semester 2023\31P8\StudentRegistrationProject\obj\Debug\StudentRegistrationProject.csproj.CoreCompileInputs.cache
+F:\Safkat Jamil (Imon)\Bangladesh Open University\CSE Program\3rd Year 1st Semester 2023\31P8\StudentRegistrationProject\obj\Debug\StudentRegistrationProject.exe
+F:\Safkat Jamil (Imon)\Bangladesh Open University\CSE Program\3rd Year 1st Semester 2023\31P8\StudentRegistrationProject\obj\Debug\StudentRegistrationProject.pdb
