@@ -1,0 +1,31 @@
+﻿@model IEnumerable<StudentManagementSystem.Models.Academic.Routine>?
+@{
+    ViewData["Title"] = "My Routines";
+    var routines = Model ?? Enumerable.Empty<StudentManagementSystem.Models.Academic.Routine>();
+}
+
+@if (!routines.Any())
+{
+    <p>You have no routines scheduled.</p>
+}
+else
+{
+    @foreach (var group in routines.GroupBy(r => r.Type))
+    {
+        <h4>@group.Key</h4>
+        <table class="table">
+            <thead>
+                <tr><th>Course</th><th>When</th></tr>
+            </thead>
+            <tbody>
+                @foreach (var r in group)
+                {
+                    <tr>
+                        <td>@(r.Course?.Title ?? "—")</td>
+                        <td>@(r.ScheduledAt.ToString("f"))</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+}

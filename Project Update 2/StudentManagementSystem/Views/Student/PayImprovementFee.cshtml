@@ -1,0 +1,26 @@
+﻿@using StudentManagementSystem.Models.Academic
+@model ImprovementExam
+
+@{
+    ViewData["Title"] = "Pay Improvement Exam Fee";
+    var courseTitle = Model.Registration?.Course?.Title ?? "the selected course";
+}
+
+<h3>Pay Improvement Fee for @courseTitle</h3>
+<p>Amount: @Model.Fee.ToString("C")</p>
+
+<form asp-action="PayImprovementFee" method="post">
+    <input type="hidden" name="id" value="@Model.Id" />
+
+    <div class="mb-3">
+        <label class="form-label">Payment Method</label>
+        <select name="method" class="form-select">
+            @foreach (var m in Enum.GetValues<PaymentMethod>())
+            {
+                <option value="@( (int)m )">@m</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Pay Now</button>
+</form>

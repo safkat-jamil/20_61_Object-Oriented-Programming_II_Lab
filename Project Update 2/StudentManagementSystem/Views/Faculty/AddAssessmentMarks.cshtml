@@ -1,0 +1,54 @@
+﻿@model IEnumerable<StudentManagementSystem.Models.Academic.Registration>
+@using StudentManagementSystem.Models.Academic
+
+@{
+    ViewData["Title"] = "Add Continuous Assessment";
+    var regs = Model ?? Enumerable.Empty<StudentManagementSystem.Models.Academic.Registration>();
+    var courseId = ViewBag.CourseId;
+}
+
+<form asp-action="AddAssessmentMarks" method="post">
+    <input type="hidden" name="courseId" value="@courseId" />
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Student</th>
+                <th>Class Test</th>
+                <th>Presentation</th>
+                <th>Attendance</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < regs.Count(); i++)
+            {
+                var reg = regs.ElementAt(i);
+                <tr>
+                    <td>
+                        @reg.Student?.FirstName @reg.Student?.LastName
+                    </td>
+                    <td>
+                        <input type="number"
+                               name="marks[@i].ClassTestMark"
+                               class="form-control" />
+                    </td>
+                    <td>
+                        <input type="number"
+                               name="marks[@i].PresentationMark"
+                               class="form-control" />
+                    </td>
+                    <td>
+                        <input type="number"
+                               name="marks[@i].AttendanceMark"
+                               class="form-control" />
+                    </td>
+                    <input type="hidden"
+                           name="marks[@i].RegistrationId"
+                           value="@reg.Id" />
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <button type="submit" class="btn btn-primary">Submit Marks</button>
+</form>

@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+<main class="col-md-10">
+    <div class="text-end mb-3">
+        <a asp-controller="Home" asp-action="AdminLogout" class="btn btn-danger">🚪 Logout</a>
+    </div>
+
+    <div>
+        <h3>Welcome, Admin</h3>
+        <p><a href="@Url.Action("AddFaculty", "Home")">Add Faculty</a></p>
+        <p><a href="@Url.Action("ApproveStudents", "Home")">Approve/Manage Students</a></p>
+
+        <h3>Faculty List:</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Faculty ID</th>
+                    <th>Faculty Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var faculty in Model.FacultyList)
+                {
+                    <tr>
+                        <td>@faculty.FacultyId</td>
+                        <td>@faculty.Name</td>
+                        <td>
+                            <a href="@Url.Action("EditFaculty", "Home", new { id = faculty.FacultyId })">Edit</a> |
+                            <a href="@Url.Action("DeleteFaculty", "Home", new { id = faculty.FacultyId })">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</main>

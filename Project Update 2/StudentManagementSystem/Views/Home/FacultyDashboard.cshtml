@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Faculty Dashboard";
+}
+<main class="col-md-10">
+    <div class="text-end mb-3">
+        <a asp-controller="Home" asp-action="FacultyLogout" class="btn btn-danger">🚪 Logout</a>
+    </div>
+
+    <div>
+        <h3>Welcome, @ViewBag.FacultyName</h3>
+        <p><strong>Faculty ID:</strong> @ViewBag.FacultyId</p>
+        <p><strong>Email:</strong> @ViewBag.FacultyEmail</p>
+
+        <a href="@Url.Action("ChangePassword", "Home")">Change Password</a>
+    </div>
+</main>

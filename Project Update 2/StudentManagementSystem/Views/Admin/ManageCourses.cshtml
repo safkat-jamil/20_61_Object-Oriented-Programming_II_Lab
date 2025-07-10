@@ -1,0 +1,30 @@
+﻿@model IEnumerable<StudentManagementSystem.Models.Academic.Course>
+@{
+    ViewData["Title"] = "Manage Courses";
+}
+<h2>Courses</h2>
+<a class="btn btn-success" asp-action="CreateCourse">➕ Add Course</a>
+<table class="table table-striped mt-3">
+    <thead>
+        <tr><th>Code</th><th>Title</th><th>Semester</th><th>Year</th><th>Type</th><th></th></tr>
+    </thead>
+    <tbody>
+        @foreach (var course in Model)
+        {
+            <tr>
+                <td>@course.Code</td>
+                <td>@course.Title</td>
+                <td>@course.Semester</td>
+                <td>@course.ExamYear</td>
+                <td>@course.Type</td>
+                <td>
+                    <a class="btn btn-sm btn-primary" asp-action="EditCourse" asp-route-id="@course.Id">Edit</a>
+                    <form asp-action="DeleteCourse" method="post" class="d-inline">
+                        <input type="hidden" name="id" value="@course.Id" />
+                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,23 @@
+﻿@using StudentManagementSystem.Models.Academic
+
+@{
+    ViewData["Title"] = "Apply for Improvement Exam";
+    var courses = (IEnumerable<SelectListItem>)ViewBag.Courses;
+}
+
+<h3>Apply for Improvement Exam</h3>
+
+<form asp-action="ImprovementExam" method="post">
+  <div class="mb-3">
+    <label for="courseId" class="form-label">Select Course</label>
+    <select id="courseId" name="courseId" class="form-select">
+      <option value="">-- Choose Course --</option>
+      @foreach (var c in courses)
+      {
+          <option value="@c.Value">@c.Text</option>
+      }
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Apply & Pay Fee</button>
+</form>

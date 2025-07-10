@@ -1,0 +1,97 @@
+﻿@model StudentManagementSystem.Models.StudentRegistrationViewModel
+@{
+    ViewData["Title"] = "Student Registration";
+}
+
+<div class="registration-container mx-auto mt-5 p-4">
+    <h2 class="text-center mb-4">Student Registration</h2>
+    <form asp-action="StudentRegistration" enctype="multipart/form-data" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+        <div class="row g-3">
+            <div class="col-md-6">
+                <input asp-for="StudentId" class="form-control" placeholder="Student ID" />
+                <span asp-validation-for="StudentId" class="text-danger"></span>
+            </div>
+            <div class="col-md-6">
+                <input asp-for="FirstName" class="form-control" placeholder="First Name" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="col-md-6">
+                <input asp-for="MiddleName" class="form-control" placeholder="Middle Name" />
+                <span asp-validation-for="MiddleName" class="text-danger"></span>
+            </div>
+            <div class="col-md-6">
+                <input asp-for="LastName" class="form-control" placeholder="Last Name" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="col-md-6">
+                <input asp-for="NickName" class="form-control" placeholder="Nick Name" />
+                <span asp-validation-for="NickName" class="text-danger"></span>
+            </div>
+            <div class="col-md-6">
+                <input asp-for="FatherName" class="form-control" placeholder="Father's Name" />
+                <span asp-validation-for="FatherName" class="text-danger"></span>
+            </div>
+            <div class="col-md-6">
+                <input asp-for="MotherName" class="form-control" placeholder="Mother's Name" />
+                <span asp-validation-for="MotherName" class="text-danger"></span>
+            </div>
+            <div class="col-md-6">
+                <input asp-for="GurdianName" class="form-control" placeholder="Gurdian's' Name (if any)" />
+                <span asp-validation-for="GurdianName" class="text-danger"></span>
+            </div>
+            <div class="col-md-6">
+                <input asp-for="DateOfBirth" type="date" class="form-control" placeholder="" />
+                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="col-md-6">
+                <select asp-for="Gender" class="form-select">
+                    <option value="">Select Gender</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+                </select>
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <div class="col-md-6">
+                <input asp-for="PhoneNumber" class="form-control" placeholder="Phone Number" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="col-md-6">
+                <input asp-for="Email" type="email" class="form-control" placeholder="Email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 validation-wrapper password-toggle-wrapper">
+                <input asp-for="Password" id="reg-password" type="password" class="form-control" placeholder="Password" />
+                <button type="button" class="password-toggle-btn" data-target="reg-password">
+                    👁️
+                </button>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 validation-wrapper password-toggle-wrapper">
+                <input asp-for="ConfirmPassword" id="reg-confirm-password" type="password" class="form-control" placeholder="Confirm Password" />
+                <button type="button" class="password-toggle-btn" data-target="reg-confirm-password">
+                    👁️
+                </button>
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            <div class="col-12">
+                <input asp-for="Photo" type="file" class="form-control" accept=".jpg,.jpeg,.png" />
+                <span asp-validation-for="Photo" class="text-danger"></span>
+            </div>
+            <div class="col-12">
+                @await Html.PartialAsync("_CaptchaPartial", Model)
+            </div>
+            <div class="col-12 text-center">
+                <button type="submit" class="btn btn-lg">Register</button>
+            </div>
+            <div class="text-center mt-3">
+                <p>Already have an account? <a asp-action="StudentLogin" asp-controller="Home">Log in</a> now!</p>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

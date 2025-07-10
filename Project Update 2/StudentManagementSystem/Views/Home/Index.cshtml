@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Welcome";
+}
+<div class="text-center mt-5">
+    <img src="~/images/BOU_Logo.png" class="mb-4" style="max-height:120px;" />
+    <h2 class="display-4 text-secondary">Bangladesh Open University</h2>
+    <h1 class="fw-bold">Welcome</h1>
+
+    <div class="d-flex justify-content-center align-items-center gap-3 mt-4 flex-wrap">
+        <div class="dropdown">
+            <button class="btn student-portal-button btn-lg dropdown-toggle" data-bs-toggle="dropdown">
+                🎓 Student Portal
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" asp-action="StudentRegistration">📋 Student Registration</a></li>
+                <li><a class="dropdown-item" asp-action="StudentLogin">🔐 Student Login</a></li>
+            </ul>
+        </div>
+
+        <a asp-action="FacultyLogin" class="btn btn-info btn-lg">👨‍🏫 Faculty Login</a>
+
+        <a asp-action="AdminLogin" class="btn btn-outline-dark btn-lg">🧑‍💼 Admin Login</a>
+    </div>
+</div>

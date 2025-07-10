@@ -1,0 +1,22 @@
+﻿@model IEnumerable<StudentManagementSystem.Models.Academic.StudyMaterial>?
+@{
+    ViewData["Title"] = "My Study Materials";
+    var materials = Model ?? Enumerable.Empty<StudentManagementSystem.Models.Academic.StudyMaterial>();
+}
+
+@if (!materials.Any())
+{
+    <p>No study materials available.</p>
+}
+else
+{
+    <ul class="list-group">
+        @foreach (var m in materials)
+        {
+            <li class="list-group-item">
+                <strong>@(m.Course?.Title ?? "—"):</strong>
+                <a href="@(m.FilePath ?? "#")" target="_blank">Download</a>
+            </li>
+        }
+    </ul>
+}

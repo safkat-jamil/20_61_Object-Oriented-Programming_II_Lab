@@ -1,0 +1,29 @@
+﻿@model IEnumerable<StudentManagementSystem.Models.Academic.Registration>
+@{
+    ViewData["Title"] = "My Course Registrations";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (!Model.Any())
+{
+    <p>You haven’t registered for any courses yet.</p>
+}
+else
+{
+    @foreach (var reg in Model)
+    {
+        <div class="card mb-3">
+            <div class="card-header">
+                <strong>@reg.Course?.Title</strong><br />
+                Semester: @(reg.Course?.Semester ?? 0), Year: @(reg.Course?.ExamYear ?? 0)<br />
+                Fee: <strong>@reg.Fee.ToString("C")</strong><br />
+                Paid: <strong>@(reg.IsPaid ? "Yes" : "No")</strong><br />
+                Approved:
+                <span class="badge @(reg.IsApproved ? "bg-success" : "bg-warning")">
+                    @(reg.IsApproved ? "Approved" : "Pending")
+                </span>
+            </div>
+        </div>
+    }
+}

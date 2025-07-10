@@ -1,0 +1,28 @@
+﻿@model StudentManagementSystem.Models.Academic.Student
+@{
+    ViewData["Title"] = "Student Details";
+}
+<h2 class="mb-4">👤 Student Details</h2>
+
+<div class="card mb-4">
+    <div class="card-body row">
+        <div class="col-md-4 text-center">
+            <img src="~/uploads/@Model.PhotoFileName"
+                 alt="Photo of @Model.FirstName"
+                 class="img-fluid rounded mb-3"
+                 style="max-height:200px;" />
+        </div>
+        <div class="col-md-8">
+            <p><strong>Student ID:</strong> @Model.StudentId</p>
+            <p><strong>Name:</strong> @Model.FirstName @Model.MiddleName @Model.LastName</p>
+            <p><strong>Nickname:</strong> @Model.NickName</p>
+            <p><strong>Email:</strong> @Model.Email</p>
+            <p><strong>Phone:</strong> @Model.PhoneNumber</p>
+            <p><strong>Date of Birth:</strong> @Model.DateOfBirth.ToString("dd MMMM yyyy")</p>
+        </div>
+    </div>
+</div>
+
+<a asp-action="ApproveStudents" class="btn btn-secondary">
+    ← Back to Pending Approvals
+</a>

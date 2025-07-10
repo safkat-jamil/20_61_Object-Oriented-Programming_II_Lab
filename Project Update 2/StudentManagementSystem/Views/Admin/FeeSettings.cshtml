@@ -1,0 +1,27 @@
+﻿@model IEnumerable<StudentManagementSystem.Models.Academic.FeeSetting>
+@{
+    ViewData["Title"] = "Manage Fees";
+}
+<h2>Semester & Improvement Fees</h2>
+<a class="btn btn-success" asp-action="CreateFee">➕ Add Fee</a>
+<table class="table table-striped mt-3">
+    <thead><tr><th>Semester</th><th>Exam Year</th><th>Reg Fee</th><th>Improvement Fee</th><th></th></tr></thead>
+    <tbody>
+        @foreach (var fee in Model)
+        {
+            <tr>
+                <td>@fee.Semester</td>
+                <td>@fee.ExamYear</td>
+                <td>@fee.RegistrationFee</td>
+                <td>@fee.ImprovementFee</td>
+                <td>
+                    <a class="btn btn-sm btn-primary" asp-action="EditFee" asp-route-id="@fee.Id">Edit</a>
+                    <form asp-action="DeleteFee" method="post" class="d-inline">
+                        <input type="hidden" name="id" value="@fee.Id" />
+                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

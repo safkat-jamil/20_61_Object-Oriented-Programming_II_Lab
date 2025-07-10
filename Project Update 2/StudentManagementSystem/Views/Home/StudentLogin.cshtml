@@ -1,0 +1,46 @@
+﻿@model StudentManagementSystem.Models.StudentLoginViewModel
+@{
+    ViewData["Title"] = "Student Login";
+}
+
+<div class="registration-container mx-auto mt-5 p-4">
+    <h2 class="text-center mb-4">Student Login</h2>
+    <form asp-action="StudentLogin" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+        <div class="mb-3">
+            <label asp-for="Identifier" class="form-label">Student ID or Email</label>
+            <input asp-for="Identifier" class="form-control" required />
+            <span asp-validation-for="Identifier" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Password" class="form-label">Password</label>
+            <div class="input-group">
+                <input asp-for="Password" id="login-password" type="password" class="form-control" required />
+                <button type="button"
+                        class="btn btn-outline-secondary password-toggle-btn"
+                        data-target="login-password">
+                    👁️
+                </button>
+            </div>
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            @await Html.PartialAsync("_CaptchaPartial", Model)
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-lg">Login</button>
+        </div>
+
+        <div class="text-center mt-3">
+            <p>New to this platform? Complete your <a asp-action="StudentRegistration" asp-controller="Home">registration</a> now to get started.</p>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

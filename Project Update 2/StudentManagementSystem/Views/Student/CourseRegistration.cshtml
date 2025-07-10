@@ -1,0 +1,48 @@
+﻿@using StudentManagementSystem.Models.Academic
+@using Microsoft.AspNetCore.Mvc.Rendering
+@using Newtonsoft.Json
+@model int
+
+@{
+    ViewData["Title"] = "Course Registration";
+    var courses = (IEnumerable<SelectListItem>)ViewBag.Courses;
+    var courseDict = courses.ToDictionary(x => x.Value!, x => x.Text!);
+    var fees = (List<FeeSetting>)ViewBag.Fees;
+}
+
+<h3>Course Registration</h3>
+<form asp-action="CourseRegistration" method="post">
+    <div class="mb-3">
+        <label for="courseId" class="form-label">Select Course</label>
+        <select id="courseId" name="courseId" class="form-select" onchange="updateFee()">
+            <option value="">-- Choose --</option>
+            @foreach (var c in courses)
+            {
+                <option value="@c.Value">@c.Text</option>
+            }
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Registration Fee</label>
+        <input id="feeDisplay" class="form-control" disabled />
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
+
+@section Scripts {
+    <script>
+        const feeData    = @Html.Raw(JsonConvert.SerializeObject(fees));
+        const courseInfo = @Html.Raw(JsonConvert.SerializeObject(courseDict));
+
+        function updateFee() {
+          const id = document.getElementById('courseId').value;
+          const txt = courseInfo[id] || '';
+          const match = feeData.find(f =>
+            txt.includes('Semester ' + f.semester) && txt.includes(f.examYear)
+          );
+          document.getElementById('feeDisplay').value = match
+            ? match.registrationFee + ' Tk'
+            : 'Not configured';
+        }
+    </script>
+}

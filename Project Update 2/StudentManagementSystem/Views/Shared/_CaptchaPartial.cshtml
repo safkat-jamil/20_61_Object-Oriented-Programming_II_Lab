@@ -1,0 +1,13 @@
+﻿@model StudentManagementSystem.Models.ICaptchaViewModel
+
+<div class="mb-3">
+    <label class="form-label">CAPTCHA</label>
+    <div class="d-flex align-items-center mb-2">
+        <div id="captcha" class="flex-grow-1 p-2 text-center rounded bg-light border"></div>
+        <button type="button" id="refresh-captcha" class="btn btn-outline-secondary btn-sm ms-2">↻</button>
+    </div>
+
+    <input asp-for="CaptchaCode" type="hidden" />
+    <input asp-for="CaptchaInput" class="form-control" placeholder="Enter CAPTCHA" />
+    <span asp-validation-for="CaptchaInput" class="text-danger"></span>
+</div>

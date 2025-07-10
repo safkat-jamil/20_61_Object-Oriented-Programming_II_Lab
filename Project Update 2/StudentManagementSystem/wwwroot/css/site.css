@@ -1,0 +1,229 @@
+/* General Styles */
+body {
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    color: #111;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Responsive text */
+body, input, select, textarea, label, .dropdown-item {
+    color: #111;
+}
+
+/* Dropdown menu hover effect */
+.dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Student Portal Button */
+.student-portal-button {
+    background: linear-gradient(to right, #0066cc, #00cc99);
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+    .student-portal-button:hover {
+        background: linear-gradient(to right, #00cc99, #0066cc);
+        transform: scale(1.05);
+    }
+
+    .student-portal-button:active {
+        transform: scale(0.98);
+    }
+
+/* Registration Container (glass effect) */
+.registration-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+    .registration-container h2 {
+        font-weight: 600;
+        color: #222;
+        text-align: center;
+    }
+
+/* Inputs */
+form .form-control {
+    background: rgba(255, 255, 255, 0.8);
+    color: #000;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+    form .form-control::placeholder {
+        color: #777;
+    }
+
+    form .form-control:hover,
+    form .form-control:focus {
+        background: #fff;
+        border-color: #0d6efd;
+        box-shadow: 0 0 5px rgba(13, 110, 253, 0.2);
+    }
+
+/* Submit Button */
+button[type="submit"] {
+    background: linear-gradient(to right, #84fab0, #8fd3f4);
+    border: none;
+    color: #000;
+    padding: 10px 30px;
+    border-radius: 6px;
+    transition: 0.3s ease-in-out;
+}
+
+    button[type="submit"]:hover {
+        background: linear-gradient(to right, #8fd3f4, #84fab0);
+        transform: scale(1.03);
+    }
+
+/* Password toggle icon button */
+.btn-outline-light {
+    color: #333;
+    border-color: #ccc;
+}
+
+/* Password toggle wrapper */
+.password-toggle-wrapper {
+    position: relative;
+}
+
+    .password-toggle-wrapper .password-toggle-btn {
+        position: absolute;
+        top: 40%;
+        right: 0.75rem;
+        transform: translateY(-50%);
+        background: transparent;
+        border: none;
+        padding: 0;
+        font-size: 1rem;
+        line-height: 1;
+        cursor: pointer;
+    }
+
+.text-danger {
+    font-size: 0.875em;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+/* Captcha Display */
+#captcha {
+    background: #eee;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    color: #333;
+}
+
+/* Dropdown menu glass effect */
+.dropdown-menu.glass {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #fff;
+    border-right: 1px solid #ddd;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.08);
+    font-weight: 600;
+    font-size: 1rem;
+    z-index: 1040;
+    padding: 1rem;
+    margin-top: 42px;
+    height: calc(100vh - 56px);
+    overflow-y: auto;
+    position: fixed;
+    left: 0;
+    top: 42px;
+    width: 250px;
+}
+
+    /* Sidebar navigation list */
+    .sidebar ul {
+        padding-left: 0;
+        list-style: none;
+        margin: 0;
+    }
+
+    .sidebar .nav-link {
+        display: block;
+        padding: 8px 15px;
+        border-radius: 6px;
+        color: #111;
+        transition: background 0.2s ease-in-out;
+    }
+
+        .sidebar .nav-link:hover {
+            background-color: #f1f1f1;
+            text-decoration: none;
+        }
+
+/* Main content */
+main.col-md-10 {
+    margin-top: 40px;
+    margin-left: 250px;
+    padding: 1rem;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 767.98px) {
+    .sidebar {
+        width: 50%;
+        top: 65px;
+        height: calc(100vh - 56px);
+    }
+
+    main.col-md-10 {
+        margin-left: 0;
+    }
+
+    .navbar-toggler {
+        border: none;
+        background: transparent;
+    }
+
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%280,0,0,0.5%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+}
+
+/* Footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(240, 240, 240, 0.85);
+    color: #000;
+    padding: 10px 0;
+    text-align: center;
+    z-index: 1050;
+}
+
+/* Dashboard user image */
+.dashboard-profile-pic {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    margin-bottom: 1rem;
+}

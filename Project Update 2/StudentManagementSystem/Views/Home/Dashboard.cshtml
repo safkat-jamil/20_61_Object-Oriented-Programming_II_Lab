@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Student Dashboard";
+    var photoPath = ViewBag.PhotoPath as string;
+}
+<main class="col-md-10">
+    <div class="text-end mb-3">
+        <a asp-controller="Home" asp-action="Logout" class="btn btn-danger">🚪 Logout</a>
+    </div>
+    <div>
+        <h2>Welcome, @ViewBag.StudentName!</h2>
+        <img src="@photoPath" alt="Profile Picture" class="dashboard-profile-pic" />
+
+        <p><strong>Student ID:</strong> @ViewBag.StudentId</p>
+        <p><strong>Email:</strong> @ViewBag.StudentEmail</p>
+        <p><strong>Status:</strong> @(ViewBag.StudentStatus ? "Approved" : "Pending")</p>
+
+    </div>
+</main>

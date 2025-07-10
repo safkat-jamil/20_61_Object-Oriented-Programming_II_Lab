@@ -1,0 +1,37 @@
+﻿@model IEnumerable<StudentManagementSystem.Models.Academic.StudentMarksViewModel>
+@{
+    ViewData["Title"] = "My Marks";
+}
+
+<h3>My Marks</h3>
+
+@if (!Model.Any())
+{
+    <p>No marks available yet.</p>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Course</th>
+                <th>Class Test</th>
+                <th>Presentation</th>
+                <th>Attendance</th>
+                <th>Final Exam</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var m in Model)
+            {
+                <tr>
+                    <td>@m.Course</td>
+                    <td>@m.ClassTestMark</td>
+                    <td>@m.PresentationMark</td>
+                    <td>@m.AttendanceMark</td>
+                    <td>@m.FinalExamMark</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
